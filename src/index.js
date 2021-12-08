@@ -50,7 +50,7 @@ getBooksAndMoviesAsync().then(results => {
 })
 
 getBooksOrMoviesAsync().then(results => {
-    console.log("movies OR books:", {
-        results
+    console.log("movies OR books", {
+        results,
     })
 })
