@@ -8,9 +8,8 @@ const getBooksAndMovies = () => {
             books,
             movies
         }))
-    .catch(error => console.log("Error in fetching the movies and books",error))
-
-}
+        .catch(error => console.log("Error fetching books and movies ", error))
+};
 const getBooksAndMoviesPromise = getBooksAndMovies();
 getBooksAndMoviesPromise.then(results => {console.log('getBooksAndMoviesPromise', results)})
 
