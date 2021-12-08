@@ -23,7 +23,7 @@ const getBooksOrMoviesPromise = getBooksOrMovies();
 getBooksOrMoviesPromise.then(results => { console.log('getBooksOrMoviesPromise', results) })
 
 
-async function getBooksAndMovies(){
+async function getBooksAndMoviesAsync(){
     try {
         const [books, movies] = await Promise.all([asyncFetchBooks(), asyncFetchMovies()])
         return { books, movies }
@@ -33,7 +33,7 @@ async function getBooksAndMovies(){
     }
 }
 
-async function getBooksOrMovies () {
+async function getBooksOrMoviesAsync () {
     try {
         const values = await Promise.race([asyncFetchBooks(), asyncFetchMovies()])
         return values
@@ -49,7 +49,7 @@ getBooksAndMoviesAsync().then(results => {
     })
 })
 
-getBooksOrMovies ().then(results => {
+getBooksOrMoviesAsync ().then(results => {
     console.log("movies OR books:", {
         results
     } )
