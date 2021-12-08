@@ -1,11 +1,13 @@
-import movies from 'movies.json'
-import fetchWithTimeout from './services';
-import './services/fetchWithTimeout'
+import {fetchWithTimeout} from './services';
 
+
+const movies = require('./data/movies.json');
 export default function fetchMovies () {
     const resolveFunction = () => movies;
-    fetchWithTimeout(1000)
-    .then(resolveFunction)
+    return fetchWithTimeout(1000)
+        .then(resolveFunction)
 }
 const moviePromise = fetchMovies();
-moviePromise.then
+moviePromise.then(results => {
+    console.log(results);
+})
