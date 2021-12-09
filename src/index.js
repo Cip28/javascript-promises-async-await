@@ -22,12 +22,12 @@ function getBooksOrMovies(){
 const getBooksOrMoviesPromise = getBooksOrMovies();
 getBooksOrMoviesPromise.then(results => { console.log('getBooksOrMoviesPromise', results) })
 
+//------------------------------------------------
 
 async function getBooksAndMoviesAsync(){
     try {
-        const [books, movies] = await Promise.all([asyncFetchBooks(), asyncFetchMovies()])
-        return { books, movies }
-        
+        const [books, movies] = await Promise.all([asyncFetchBooks(), asyncFetchMovies()]);
+        return { books, movies };        
     } catch (error){
         console.error("Error fetching books and movies",error)
     }
@@ -43,14 +43,14 @@ async function getBooksOrMoviesAsync () {
 }
 
 getBooksAndMoviesAsync().then(results => {
-    console.log("movies and books", {
+    console.log('movies and books', {
         movies:results.movies,
-        books:results.books
+        books:results.books,
     })
 })
 
 getBooksOrMoviesAsync().then(results => {
-    console.log("movies OR books", {
+    console.log('movies OR books', {
         results,
-    })
+    });
 });
